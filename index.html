@@ -1,142 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>W3.CSS Template</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodhub</title>
+
+  <!--
+    - custom css link 
+  -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/media_query.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
 </head>
+
 <body>
 
-<!-- Links (sit on top) -->
-<div class="w3-top">
-    <div class="w3-row w3-padding w3-black">
-        <div class="w3-col s3">
-            <a href="#" class="w3-button w3-block w3-black">HOME</a>
-        </div>
-        <div class="w3-col s3">
-            <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-        </div>
-        <div class="w3-col s3">
-            <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-        </div>
-        <div class="w3-col s3">
-            <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
-        </div>
-    </div>
-</div>
+  <!--
+    - main container
+  -->
 
-<!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
-    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-        <span class="w3-tag">Open from 6am to 5pm</span>
-    </div>
-    <div class="w3-display-middle w3-center">
-        <span class="w3-text-white" style="font-size:90px">the<br>Cafe</span>
-    </div>
-    <div class="w3-display-bottomright w3-center w3-padding-large">
-        <span class="w3-text-white">15 Adr street, 5015</span>
-    </div>
-</header>
+  <div class="container">
 
-<!-- Add a background color and large text to the whole page -->
-<div class="w3-sand w3-grayscale w3-large">
+    <!--
+      - #HEADER
+    -->
 
-    <!-- About Container -->
-    <div class="w3-container" id="about">
-        <div class="w3-content" style="max-width:700px">
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
-            <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
-            <div class="w3-panel w3-leftbar w3-light-grey">
-                <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-                <p>Chef, Coffeeist and Owner: Liam Brown</p>
+    <header>
+
+      <nav class="navbar">
+
+        <div class="navbar-wrapper">
+
+          <a href="#">
+            <img src="./images/logo.svg" alt="logo" width="130">
+          </a>
+
+          <ul class="navbar-nav">
+
+            <li>
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="nav-link">About</a>
+            </li>
+
+            <li>
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+
+            <li>
+              <a href="#menu" class="nav-link">Our Menu</a>
+            </li>
+
+            <li>
+              <a href="#testimonials" class="nav-link">Testimonials</a>
+            </li>
+
+          </ul>
+
+          <div class="navbar-btn-group">
+
+            <button class="shopping-cart-btn">
+              <img src="./images/cart.svg" alt="shopping cart icon" width="18">
+              <span class="count">5</span>
+            </button>
+
+            <button class="menu-toggle-btn">
+              <span class="line one"></span>
+              <span class="line two"></span>
+              <span class="line three"></span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+      <div class="cart-box">
+
+        <ul class="cart-box-ul">
+
+          <h4 class="cart-h4">Your order.</h4>
+
+          <li>
+            <a href="#" class="cart-item">
+              <div class="img-box">
+                <img src="./images/menu1.jpg" alt="product image" class="product-img" width="50" height="50"
+                  loading="lazy">
+              </div>
+
+              <h5 class="product-name">Saumon gravlax</h5>
+              <p class="product-price">
+                <span class="small">$</span>9
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="cart-item">
+              <div class="img-box">
+                <img src="./images/menu2.jpg" alt="product image" class="product-img" width="50" height="50"
+                  loading="lazy">
+              </div>
+
+              <h5 class="product-name">Chevrefried with honey</h5>
+              <p class="product-price">
+                <span class="small">$</span>14
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="cart-item">
+              <div class="img-box">
+                <img src="./images/menu3.jpg" alt="product image" class="product-img" width="50" height="50"
+                  loading="lazy">
+              </div>
+
+              <h5 class="product-name">Crispy fish</h5>
+              <p class="product-price">
+                <span class="small">$</span>4
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="cart-item">
+              <div class="img-box">
+                <img src="./images/menu4.jpg" alt="product image" class="product-img" width="50" height="50"
+                  loading="lazy">
+              </div>
+
+              <h5 class="product-name">Stracciatella</h5>
+              <p class="product-price">
+                <span class="small">$</span>11
+              </p>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="cart-item">
+              <div class="img-box">
+                <img src="./images/menu5.jpg" alt="product image" class="product-img" width="50" height="50"
+                  loading="lazy">
+              </div>
+
+              <h5 class="product-name">Sea bream carpaccio</h5>
+              <p class="product-price">
+                <span class="small">$</span>19
+              </p>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="cart-btn-group">
+          <button class="btn btn-secondary">View order</button>
+          <button class="btn btn-primary">Checkout</button>
+        </div>
+
+      </div>
+
+    </header>
+
+
+
+
+
+    <main>
+
+      <!--
+        - #HOME SECTION
+      -->
+
+      <section class="home" id="home">
+
+        <div class="home-left">
+
+          <p class="home-subtext">Hi, new friend!</p>
+
+          <h1 class="main-heading">We do not cook, we create your emotions!</h1>
+
+          <p class="home-text">
+            Consectetur numquam poro nemo veniam eligendi rem adipisci quo modi
+          </p>
+
+          <div class="btn-group">
+
+            <button class="btn btn-primary btn-icon">
+              <img src="./images/menu.svg" alt="menu icon">
+              Our menu
+            </button>
+
+            <button class="btn btn-secondary btn-icon">
+              <img src="./images/arrow.svg" alt="menu icon">
+              About us
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="home-right">
+
+          <img src="./images/food1.png" alt="food image" class="food-img food-1" width="200" loading="lazy">
+          <img src="./images/food2.png" alt="food image" class="food-img food-2" width="200" loading="lazy">
+          <img src="./images/food3.png" alt="food image" class="food-img food-3" width="200" loading="lazy">
+
+          <img src="./images/dialog-1.svg" alt="dialog" class="dialog dialog-1" width="230">
+          <img src="./images/dialog-2.svg" alt="dialog" class="dialog dialog-2" width="230">
+
+          <img src="./images/circle.svg" alt="circle shape" class="shape shape-1" width="25">
+          <img src="./images/circle.svg" alt="circle shape" class="shape shape-2" width="15">
+          <img src="./images/circle.svg" alt="circle shape" class="shape shape-3" width="30">
+          <img src="./images/ring.svg" alt="ring shape" class="shape shape-4" width="60">
+          <img src="./images/ring.svg" alt="ring shape" class="shape shape-5" width="40">
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #ABOUT SECTION
+      -->
+
+      <section class="about" id="about">
+
+        <div class="about-left">
+
+          <div class="img-box">
+            <img src="./images/about-image.jpg" alt="about image" class="about-img" width="250">
+          </div>
+
+          <div class="abs-content-box">
+            <div class="dotted-border">
+              <p class="number-lg">17</p>
+              <p class="text-md">Years <br> Experiense</p>
             </div>
-            <img src="https://www.w3schools.com/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-            <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
-            <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+          </div>
+
+          <img src="./images/circle.svg" alt="circle shape" class="shape shape-6" width="20">
+          <img src="./images/circle.svg" alt="circle shape" class="shape shape-7" width="30">
+          <img src="./images/ring.svg" alt="ring shape" class="shape shape-8" width="35">
+          <img src="./images/ring.svg" alt="ring shape" class="shape shape-9" width="80">
+
         </div>
-    </div>
 
-    <!-- Menu Container -->
-    <div class="w3-container" id="menu">
-        <div class="w3-content" style="max-width:700px">
+        <div class="about-right">
 
-            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+          <h2 class="section-title">We are doing more than
+            you expect</h2>
 
-            <div class="w3-row w3-center w3-card w3-padding">
-                <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-                    <div class="w3-col s6 tablink">Eat</div>
-                </a>
-                <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-                    <div class="w3-col s6 tablink">Drink</div>
-                </a>
+          <p class="section-text">
+            Faudantium magnam error temporibus ipsam aliquid neque quibusdam dolorum, quia ea numquam assumenda mollitia
+            dolorem
+            impedit. Voluptate at quis exercitationem officia temporibus adipisci quae totam enim dolorum, assumenda.
+            Sapiente
+            soluta nostrum reprehenderit a velit obcaecati facilis vitae magnam tenetur neque vel itaque inventore eaque
+            explicabo
+            commodi maxime! Aliquam quasi, voluptates odio.
+          </p>
+
+          <p class="section-text">
+            Consectetur adipisicing elit. Cupiditate nesciunt amet facilis numquam, nam adipisci qui voluptate voluptas
+            enim
+            obcaecati veritatis animi nulla, mollitia commodi quaerat ex, autem ea laborum.
+          </p>
+
+          <img src="./images/signature.png" alt="signature" class="signature" width="150">
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #SERVICES SECTION
+      -->
+
+      <section class="services" id="services">
+
+        <div class="service-card">
+
+          <p class="card-number">01</p>
+
+          <h3 class="card-heading">We are located in the city center</h3>
+
+          <p class="card-text">
+            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <p class="card-number">02</p>
+
+          <h3 class="card-heading">Fresh ingredients from organic farms</h3>
+
+          <p class="card-text">
+            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <p class="card-number">03</p>
+
+          <h3 class="card-heading">Own fast delivery. 30 min Maximum</h3>
+
+          <p class="card-text">
+            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <p class="card-number">04</p>
+
+          <h3 class="card-heading">Professional, experienced chefs</h3>
+
+          <p class="card-text">
+            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <p class="card-number">05</p>
+
+          <h3 class="card-heading">The highest standards of service</h3>
+
+          <p class="card-text">
+            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #PRODUCT SECTION
+      -->
+
+      <section class="product" id="menu">
+
+        <h2 class="section-title">Most popular dishes</h2>
+
+        <p class="section-text">
+          Consectetur numquam poro nemo veniam
+          eligendi rem adipisci quo modi.
+        </p>
+
+        <div class="products-grid">
+
+          <a href="#">
+
+            <div class="product-card">
+
+              <div class="img-box">
+                <img src="./images/menu1.jpg" alt="product image" class="product-img" width="200" loading="lazy">
+              </div>
+
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Stracciatella</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>11
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
             </div>
 
-            <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-                <h5>Bread Basket</h5>
-                <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+          </a>
 
-                <h5>Honey Almond Granola with Fruits</h5>
-                <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+          <a href="#">
 
-                <h5>Belgian Waffle</h5>
-                <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+            <div class="product-card">
 
-                <h5>Scrambled eggs</h5>
-                <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+              <div class="img-box">
+                <img src="./images/menu2.jpg" alt="product image" class="product-img" width="200" loading="lazy">
+              </div>
 
-                <h5>Blueberry Pancakes</h5>
-                <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Chevrefrit au miel</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>14
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
             </div>
 
-            <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-                <h5>Coffee</h5>
-                <p class="w3-text-grey">Regular coffee 2.50</p><br>
+          </a>
 
-                <h5>Chocolato</h5>
-                <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+          <a href="#">
 
-                <h5>Corretto</h5>
-                <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+            <div class="product-card">
 
-                <h5>Iced tea</h5>
-                <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+              <div class="img-box">
+                <img src="./images/menu3.jpg" alt="product image" class="product-img" width="200" loading="lazy">
 
-                <h5>Soda</h5>
-                <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+                <div class="card-badge green">
+                  <ion-icon name="leaf"></ion-icon>
+                  <p>Vegan</p>
+                </div>
+              </div>
+
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Saumon Gravlax</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>9
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
             </div>
-            <img src="https://www.w3schools.com/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
-        </div>
-    </div>
 
-    <!-- Contact/Area Container -->
-    <div class="w3-container" id="where" style="padding-bottom:32px;">
-        <div class="w3-content" style="max-width:700px">
-            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
-            <p>Find us at some address at some place.</p>
-            <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image" style="width:100%">
-            <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-            <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-                <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
-            </form>
-        </div>
-    </div>
+          </a>
 
-    <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-        <p>This website was made with W3schools Spaces. Make your own free website today!</p>
-        <a class="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom" href="https://www.w3schools.com/spaces" target="_blank">Start now</a>
-        <!-- Footer end. -->
+          <a href="#">
+
+            <div class="product-card">
+
+              <div class="img-box">
+                <img src="./images/menu4.jpg" alt="product image" class="product-img" width="200" loading="lazy">
+
+                <div class="card-badge red">
+                  <ion-icon name="flame"></ion-icon>
+                  <p>Hot</p>
+                </div>
+              </div>
+
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Croustillant de poisson</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>4
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+          <a href="#">
+
+            <div class="product-card">
+
+              <div class="img-box">
+                <img src="./images/menu5.jpg" alt="product image" class="product-img" width="200" loading="lazy">
+
+                <div class="card-badge green">
+                  <ion-icon name="leaf"></ion-icon>
+                  <p>Vegan</p>
+                </div>
+              </div>
+
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Carpaccio de daurade</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>6
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+          <a href="#">
+
+            <div class="product-card">
+
+              <div class="img-box">
+                <img src="./images/menu2.jpg" alt="product image" class="product-img" width="200" loading="lazy">
+              </div>
+
+              <div class="product-content">
+
+                <div class="wrapper">
+                  <h3 class="product-name">Chevrefrit au miel</h3>
+
+                  <p class="product-price">
+                    <span class="small">$</span>14
+                  </p>
+                </div>
+
+                <p class="product-text">
+                  tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.
+                </p>
+
+                <div class="product-rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+        <button class="btn btn-primary btn-icon">
+          <img src="./images/menu.svg" alt="menu icon">
+          Full menu
+        </button>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #TESTIMONIALS SECTION
+      -->
+
+      <section class="testimonials" id="testimonials">
+
+        <h2 class="section-title">What our customers say?</h2>
+
+        <p class="section-text">
+          Consectetur numquam poro nemo veniam
+          eligendi rem adipisci quo modi.
+        </p>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonials-card">
+
+            <h4 class="card-title">Very tasty</h4>
+
+            <div class="testimonials-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </div>
+
+            <p class="testimonials-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis fugiat totam nobis quas unde excepturi
+              inventore possimus
+              laudantium provident, rem eligendi velit. Aut molestias, ipsa itaque laborum, natus
+              tempora, ut soluta animi ducimus dignissimos deserunt doloribus in reprehenderit rem accusamus! Quibusdam
+              labore,
+              aliquam dolor harum!
+            </p>
+
+            <div class="customer-info">
+              <div class="customer-img-box">
+                <img src="./images/testimonials1.jpg" alt="customer image" class="customer-img" width="100" loading="lazy">
+              </div>
+
+              <h5 class="customer-name">Emma Newman</h5>
+            </div>
+
+          </div>
+
+          <div class="testimonials-card">
+          
+            <h4 class="card-title">I have lunch here every day</h4>
+          
+            <div class="testimonials-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </div>
+          
+            <p class="testimonials-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis fugiat totam nobis quas unde excepturi
+              inventore possimus
+              laudantium provident, rem eligendi velit. Aut molestias, ipsa itaque laborum, natus
+              tempora, ut soluta animi ducimus dignissimos deserunt doloribus in reprehenderit rem accusamus! Quibusdam
+              labore,
+              aliquam dolor harum!
+            </p>
+          
+            <div class="customer-info">
+              <div class="customer-img-box">
+                <img src="./images/testimonials2.jpg" alt="customer image" class="customer-img" width="100" loading="lazy">
+              </div>
+          
+              <h5 class="customer-name">Paul Trueman</h5>
+            </div>
+          
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+
+
+    <!--
+      - #FOOTER
+    -->
+
+    <footer>
+
+      <div class="footer-wrapper">
+
+        <a href="#">
+          <img src="./images/logo-footer.svg" alt="logo" class="footer-brand" width="130">
+        </a>
+
+        <div class="social-link">
+
+          <a href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+
+          <a href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+
+          <a href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+
+          <a href="#">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+
+        </div>
+
+        <p class="copyright">&copy; Copyright 2022 codewithsadee. All Rights Reserved.</p>
+
+      </div>
+
     </footer>
 
-    <script src="script.js"></script>
+  </div>
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>

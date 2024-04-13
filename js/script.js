@@ -1,15 +1,49 @@
-// JavaScript code
-function openMenu(evt, menuName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("menu");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
-  }
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+'use strict';
+
+
+// navbar variables
+const nav = document.querySelector('.navbar-nav');
+const navLinks = document.querySelectorAll('.nav-link');
+const cartToggleBtn = document.querySelector('.shopping-cart-btn');
+const navToggleBtn = document.querySelector('.menu-toggle-btn');
+const shoppingCart = document.querySelector('.cart-box');
+
+
+
+// nav toggle function
+const navToggleFunc = function () {
+  nav.classList.toggle('active');
+  navToggleBtn.classList.toggle('active');
 }
-document.getElementById("myLink").click();
+
+// shopping cart toggle function
+const cartToggleFunc = function () { shoppingCart.classList.toggle('active') }
+
+
+
+// add event on nav-toggle-btn
+navToggleBtn.addEventListener('click', function () {
+
+  // If the shopping-cart has an `active` class, it will be removed.
+  if (shoppingCart.classList.contains('active')) cartToggleFunc();
+
+  navToggleFunc();
+
+});
+
+// add event on cart-toggle-btn
+cartToggleBtn.addEventListener('click', function () {
+
+  // If the navbar-nav has an `active` class, it will be removed.
+  if (nav.classList.contains('active')) navToggleFunc();
+
+  cartToggleFunc();
+
+});
+
+// add event on all nav-link
+for (let i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('click', navToggleFunc);
+
+}
