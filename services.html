@@ -6,16 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foodhub</title>
-
-  <!--
-    - custom css link 
-  -->
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/media_query.css">
-
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,137 +17,124 @@
 </head>
 
 <body>
-
-  <!--
-    - main container
-  -->
-
   <div class="container">
-
-    <!--
-      - #HEADER
-    -->
-
     <header>
-
       <nav class="navbar">
-
         <div class="navbar-wrapper">
-
           <a>
             <img src="./images/logo.svg" alt="logo" width="130">
           </a>
-
-
-            <li>
-              <a href="index.html" class="nav-link">Home</a>
-            </li>
-
-            <li>
-              <a href="about.html" class="nav-link">About</a>
-            </li>
-
-            <li>
-              <a href="services.html" class="nav-link">Services</a>
-            </li>
-
-            <li>
-              <a href="product.html" class="nav-link">Our Menu</a>
-            </li>
-
-
+          <li>
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li>
+            <a href="services.html" class="nav-link">Services</a>
+          </li>
+          <li>
+            <a href="product.html" class="nav-link">Our Menu</a>
+          </li>
           </ul>
-
-         
     </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css"
+            rel="stylesheet">
+          <!-- FORM  -->
+          <div class="col-md-12">
+            <form class="form-horizontal" id="form-edit-client">
+              <fieldset>
+                <!-- Form Name -->
+                <legend>Add Review</legend>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="client-name">Name</label>
+                  <div class="col-md-4">
+                    <input id="client-name" name="client-name" type="text" placeholder="your client's name"
+                      class="form-control input-md">
+                    <span class="help-block">Full name</span>
+                  </div>
+                </div>
 
-    
-        <main>
+                <!-- Prepended text-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="client-email">Rating</label>
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon"></span>
+                      <input id="client-email" name="client-email" class="form-control" placeholder="Add rating / 5"
+                        type="text">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="client-email">Review</label>
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <input id="client-email" name="client-email" class="form-control" placeholder="Add review"
+                        type="text">
+                    </div>
+                  </div>
+                </div>
 
 
 
 
 
+                <!-- Button -->
+
+
+              </fieldset>
+            </form>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="btn-save"></label>
+              <div class="col-md-4" id="saveupdate">
+                <button id="btn-save" name="btn-save" class="btn btn-success" onclick="addClient()">Save</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- LIST -->
+          <div class=col-md-12>
+
+            <legend>Reviews List</legend>
+
+
+            <table class="table table-bordered table-condensed table-hover">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <th>Rating</th>
+                  <th>Review</th>
+                  <th>Actions</th>
+                </tr>
+
+              </thead>
+              <tbody id="form-list-client-body">
+
+              </tbody>
+            </table>
+
+
+          </div>
+
+
+          <br> 
+
+          <!-- view -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-      <section class="services" id="services">
-
-        <div class="service-card">
-
-          <p class="card-number">01</p>
-
-          <h3 class="card-heading">We are located in the city center</h3>
-
-          <p class="card-text">
-            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-          </p>
 
         </div>
+      </div>
 
-        <div class="service-card">
 
-          <p class="card-number">02</p>
-
-          <h3 class="card-heading">Fresh ingredients from organic farms</h3>
-
-          <p class="card-text">
-            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-          </p>
-
-        </div>
-
-        <div class="service-card">
-
-          <p class="card-number">03</p>
-
-          <h3 class="card-heading">Own fast delivery. 30 min Maximum</h3>
-
-          <p class="card-text">
-            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-          </p>
-
-        </div>
-
-        <div class="service-card">
-
-          <p class="card-number">04</p>
-
-          <h3 class="card-heading">Professional, experienced chefs</h3>
-
-          <p class="card-text">
-            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-          </p>
-
-        </div>
-
-        <div class="service-card">
-
-          <p class="card-number">05</p>
-
-          <h3 class="card-heading">The highest standards of service</h3>
-
-          <p class="card-text">
-            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-          </p>
-
-        </div>
 
       </section>
+
+    </main>
