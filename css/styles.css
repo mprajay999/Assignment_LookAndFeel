@@ -94,6 +94,42 @@ li {
   border-color: #398439;
 }
 
+.map-section {
+  display: flex;
+  align-items: center;
+  height: 100vh; /* Optional: adjust the height as needed */
+}
+
+.map-container {
+  width: 600px; /* Adjust width as needed */
+  height: 450px; /* Adjust height as needed */
+  margin-right: auto; /* Push the container to the left */
+}
+
+.timing-details {
+  margin-top: 1%; /* Adjust margin as needed */
+  margin-right: 10%;
+}
+
+.timing-details h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.timing-details p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  display: table-row;
+}
+
+.timing-details p span {
+  display: table-cell;
+  padding-right: 20px; /* Adjust spacing between day and timing */
+}
+
+
 
 /*-----------------------------------*\ 
   #CUSTOM PROPERTY

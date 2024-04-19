@@ -1,80 +1,93 @@
+Certainly! Here's the modified code with the Chart.js integration:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulls Bistro</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulls Bistro</title>
 
-    <!-- Bootstrap CSS link -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <!-- Custom CSS links -->
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/media_query.css">
-    <!-- Google Fonts link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS link -->
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <!-- Custom CSS links -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/media_query.css">
+  <!-- Google Fonts link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <nav class="navbar">
-                <div class="navbar-wrapper">
-                  <h1 class="title"><img src="./images/usf.png" alt="Bulls Bistro Logo" class="logo"> Bulls Bistro </h1>
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="Hours.html" class="nav-link">Hours</a></li>
-                        <li><a href="Reviews.html" class="nav-link">Reviews</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                </div>
-            </nav>
-        </header>
-
-        
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <nav class="navbar">
+        <div class="navbar-wrapper">
+          <h1 class="title"><img src="./images/usf.png" alt="Bulls Bistro Logo" class="logo"> Bulls Bistro
+          </h1>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="Hours.html" class="nav-link">Hours</a></li>
+          <li><a href="Reviews.html" class="nav-link">Reviews</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </div>
+      </nav>
+    </header>
 
     <!-- Main content -->
     <main>
       <div class="reviews">
 
-<!-- Review List -->
-<div class="col-md-12">
-  <legend>Reviews</legend>
-  <table class="table table-bordered table-condensed table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Rating</th>
-        <th>Review</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="form-list-client-body">
-      <!-- Dummy data -->
-      <tr>
-        <td>John Doe</td>
-        <td>5</td>
-        <td>This restaurant is amazing!</td>
-        <td>
-          <button class="btn btn-info btn-xs">Edit</button>
-          <button class="btn btn-danger btn-xs">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Jane Smith</td>
-        <td>4</td>
-        <td>Great food, but service could be better.</td>
-        <td>
-          <button class="btn btn-info btn-xs">Edit</button>
-          <button class="btn btn-danger btn-xs">Delete</button>
-        </td>
-      </tr>
-      <!-- End of dummy data -->
-    </tbody>
-  </table>
-</div>
+        <!-- Chart -->
+        <div class="col-md-20">
+          <canvas id="reviewDistributionChart" style="width: 100%; height: 500px;"></canvas>
+        </div>
+
+        <!-- Review List -->
+        <div class="col-md-12">
+          <legend>Reviews</legend>
+          <table class="table table-bordered table-condensed table-hover" id="reviewTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Review</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="form-list-client-body">
+              <!-- Dummy data -->
+              <tr>
+                <td>John Doe</td>
+                <td>5</td>
+                <td>This restaurant is amazing!</td>
+                <td>
+                  <button class="btn btn-info btn-xs">Edit</button>
+                  <button class="btn btn-danger btn-xs">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jane Smith</td>
+                <td>4</td>
+                <td>Great food, but service could be better.</td>
+                <td>
+                  <button class="btn btn-info btn-xs">Edit</button>
+                  <button class="btn btn-danger btn-xs">Delete</button>
+                </td>
+              </tr>
+              <!-- End of dummy data -->
+            </tbody>
+          </table>
+        </div>
+
+
+
+        
 
 
         <!-- Add Review Form -->
@@ -87,23 +100,23 @@
                 <div class="col-md-4">
                   <input id="client-name" name="client-name" type="text" placeholder="Your client's name"
                     class="form-control input-md">
-                  <span class="help-block">Full name</span>
+
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-md-4 control-label" for="client-rating">Rating</label>
                 <div class="col-md-4">
-                  <input id="client-rating" name="client-rating" class="form-control"
-                    placeholder="Add rating / 5" type="text">
+                  <input id="client-rating" name="client-rating" class="form-control" placeholder="Add rating / 5"
+                    type="text">
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-md-4 control-label" for="client-review">Review</label>
                 <div class="col-md-4">
-                  <input id="client-review" name="client-review" class="form-control"
-                    placeholder="Add review" type="text">
+                  <input id="client-review" name="client-review" class="form-control" placeholder="Add review"
+                    type="text">
                 </div>
               </div>
 
@@ -115,11 +128,12 @@
             </fieldset>
           </form>
         </div>
-
       </div>
+
+
     </main>
 
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./js/script.js"></script>
 </body>
-
-</html>
