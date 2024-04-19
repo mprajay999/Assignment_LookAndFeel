@@ -564,3 +564,126 @@ html {
   color: #666;
   display: table-row;
 }
+
+
+/*-----------------------------------*\ 
+  #REVIEW SECTION
+\*-----------------------------------*/
+
+.reviews {
+  margin-top: 5%;
+}
+
+.reviews h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#review-form {
+  margin-bottom: 20px;
+  
+}
+
+#review-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#review-form input[type="text"],
+#review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#review-form textarea {
+  resize: vertical;
+}
+
+#review-form button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#review-form button:hover {
+  background-color: #45a049;
+}
+
+/* Existing Reviews Styles */
+#existing-reviews {
+  border-top: 1px solid #ccc;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.review {
+  margin-bottom: 20px;
+}
+
+.review h3 {
+  margin-bottom: 5px;
+}
+
+
+/* Rating Input Styles */
+.rating-input {
+  margin-bottom: 10px;
+}
+
+.rating-input input[type="radio"] {
+  display: none;
+}
+
+.rating-input label {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.rating-input label:before {
+  content: '\2605'; /* Unicode character for star */
+  color: #ddd;
+}
+
+.rating-input input[type="radio"]:checked ~ label:before {
+  color: #ffc107; /* Color for selected star */
+}
+
+/* Ensure all labels are in the same line */
+.rating-input label {
+  white-space: nowrap;
+}
+
+/* Ensure the radio buttons and labels are inline */
+.rating-input input[type="radio"] + label {
+  display: inline-block;
+}
+
+  /* Style for the review options */
+  .review-options {
+    margin-top: 10px; /* Add some space between the review and the buttons */
+  }
+
+  /* Style for the edit and delete buttons */
+  .edit-btn,
+  .delete-btn {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark gray text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Add padding to the buttons */
+    margin-right: 5px; /* Add some space between the buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+
+  /* Style for the delete button */
+  .delete-btn {
+    background-color: #ff6666; /* Red background */
+    color: #fff; /* White text color */
+  }
