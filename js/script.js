@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded",function() {
 
     // Get the data for the reviews (dummy data for now)
     const reviewData = [
-        { rating: 5, count: 3 },
-        { rating: 4, count: 5 },
-        { rating: 3, count: 2 },
-        { rating: 2, count: 1 },
-        { rating: 1, count: 0 }
+        { rating: 5, count: 56 },
+        { rating: 4, count: 43 },
+        { rating: 3, count: 17 },
+        { rating: 2, count: 5 },
+        { rating: 1, count: 2 }
     ];
 
     // Extract rating and count for each review

@@ -574,6 +574,13 @@ html {
   margin-top: 5%;
 }
 
+@media screen and (max-width: 768px) {
+  .reviews {
+    margin-top: 20%;
+  }
+}
+
+
 .reviews h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -632,6 +639,15 @@ html {
 
 
 /* Rating Input Styles */
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px; /* Adds space between reviews */
+}
+
+
 .rating-input {
   margin-bottom: 10px;
 }
@@ -669,6 +685,7 @@ html {
   /* Style for the review options */
   .review-options {
     margin-top: 10px; /* Add some space between the review and the buttons */
+    display: flex;
   }
 
   /* Style for the edit and delete buttons */
@@ -687,3 +704,19 @@ html {
     background-color: #ff6666; /* Red background */
     color: #fff; /* White text color */
   }
+
+
+  .chart-container {
+    position: relative;
+    height: 40vh;
+    width: 100%; /* Adjust width as needed */
+    margin: 5px auto; /* Center horizontally with 5px top margin */
+    display: block;
+  }
+  
+    /* Media query for adjusting chart container on small screens */
+    @media screen and (max-width: 768px) {
+      .chart-container {
+        margin-top: 50px; /* Adjust the value as needed */
+      }
+    }

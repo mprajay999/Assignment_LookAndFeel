@@ -14,9 +14,7 @@
   <!-- Google Font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -52,8 +50,11 @@
     <main>
       <!-- Reviews Section -->
       <section class="reviews" id="reviews">
+
         <!-- Existing Reviews -->
         <div id="existing-reviews">
+          <h1>Customer Reviews</h1>
+          <br>
           <div class="review">
             <h3>John Doe</h3>
             <p>Rating: 4/5</p>
@@ -77,6 +78,10 @@
           <!-- Add more dummy reviews as needed -->
         </div>
 
+        <!-- Chart.js Chart -->
+        <div class="chart-container">
+          <canvas id="reviewDistributionChart"></canvas>
+        </div>
 
         <!-- Review Form -->
         <form id="review-form" style="margin-top: 20px;">
@@ -104,13 +109,13 @@
         </form>
       </section>
     </main>
-
-
-
   </div>
 
   <!-- Custom JS link -->
   <script src="./js/script.js"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
