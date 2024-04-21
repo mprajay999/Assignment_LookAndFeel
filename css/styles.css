@@ -720,3 +720,10 @@ html {
         margin-top: 50px; /* Adjust the value as needed */
       }
     }
+
+
+    .chart-container {
+      display: flex;
+      justify-content: center;
+    }
+    

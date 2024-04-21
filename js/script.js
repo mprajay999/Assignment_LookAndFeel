@@ -54,78 +54,6 @@
 
 
 
-    function editReview(event) {
-      // Get the parent review element
-      const review = event.target.closest('.review');
-      
-      // Assuming you have input fields for editing
-      const nameInput = review.querySelector('h3');
-      const ratingInput = review.querySelector('p:nth-of-type(1)');
-      const commentInput = review.querySelector('p:nth-of-type(2)');
-      
-      // Enable input fields for editing
-      nameInput.contentEditable = true;
-      ratingInput.contentEditable = true;
-      commentInput.contentEditable = true;
-      
-      // Change the button text to 'Save'
-      event.target.textContent = 'Save';
-      
-      // Remove the event listener for editing and add one for saving
-      event.target.removeEventListener('click', editReview);
-      event.target.addEventListener('click', saveReview);
-    }
-  
-    // Function to handle deleting a review
-    function deleteReview(event) {
-      // Get the parent review element and remove it
-      const review = event.target.closest('.review');
-      review.remove();
-    }
-  
-    // Function to handle saving an edited review
-    function saveReview(event) {
-      // Get the parent review element
-      const review = event.target.closest('.review');
-      
-      // Assuming you have input fields for editing
-      const nameInput = review.querySelector('h3');
-      const ratingInput = review.querySelector('p:nth-of-type(1)');
-      const commentInput = review.querySelector('p:nth-of-type(2)');
-      
-      // Disable input fields after editing
-      nameInput.contentEditable = false;
-      ratingInput.contentEditable = false;
-      commentInput.contentEditable = false;
-      
-      // Change the button text back to 'Edit'
-      event.target.textContent = 'Edit';
-      
-      // Remove the event listener for saving and add one for editing
-      event.target.removeEventListener('click', saveReview);
-      event.target.addEventListener('click', editReview);
-    }
-  
-    // Add event listeners for edit buttons
-    const editButtons = document.querySelectorAll('.edit-btn');
-    editButtons.forEach(button => {
-      button.addEventListener('click', editReview);
-    });
-  
-    // Add event listeners for delete buttons
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach(button => {
-      button.addEventListener('click', deleteReview);
-    });
-
-
-
-
-
-
-
-
-
 
 
 
@@ -148,8 +76,8 @@
         1: 0,
         2: 0,
         3: 0,
-        4: 1,
-        5: 1
+        4: 0,
+        5: 0
       };
     
       let myChart;
@@ -214,6 +142,18 @@
         }
       }
     
+      // Function to initialize review count with existing reviews
+      function initializeReviewCount() {
+        const reviews = existingReviews.querySelectorAll('.review');
+        reviews.forEach(review => {
+          const rating = parseInt(review.querySelector('p:nth-of-type(1)').textContent.split('/')[0], 10);
+          reviewCount[rating]++;
+        });
+      }
+    
+      // Call initializeReviewCount to set initial review count
+      initializeReviewCount();
+    
       // Event listener for submitting a review
       reviewForm.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -233,6 +173,9 @@
         // Get the parent review element
         const review = event.target.closest('.review');
     
+        // Store the old rating in a data attribute
+        review.dataset.oldRating = review.querySelector('p:nth-of-type(1)').textContent.split('/')[0];
+    
         // Assuming you have input fields for editing
         const nameInput = review.querySelector('h3');
         const ratingInput = review.querySelector('p:nth-of-type(1)');
@@ -240,22 +183,78 @@
     
         // Enable input fields for editing
         nameInput.contentEditable = true;
-        ratingInput.contentEditable = true;
         commentInput.contentEditable = true;
+    
+        // Split the rating into integer and fractional parts
+        const ratingText = ratingInput.textContent;
+        const [integerPart, fractionalPart] = ratingText.split('/');
+    
+        // Create input field for the integer part of the rating
+        const ratingInputField = document.createElement('input');
+        ratingInputField.type = 'number';
+        ratingInputField.min = 1;
+        ratingInputField.max = 5;
+        ratingInputField.value = integerPart.trim();
+        ratingInputField.classList.add('rating-input');
+    
+        // Replace the rating text with the input field
+        ratingInput.textContent = '';
+        ratingInput.appendChild(ratingInputField);
+        ratingInput.insertAdjacentText('beforeend', `/${fractionalPart.trim()}`);
     
         // Change the button text to 'Save'
         event.target.textContent = 'Save';
     
-        // Remove the event listener for editing and add one for saving
+        // Add event listener to save the edited review
         event.target.removeEventListener('click', editReview);
         event.target.addEventListener('click', saveReview);
+      }
+    
+      // Function to handle saving an edited review
+      function saveReview(event) {
+        // Get the parent review element
+        const review = event.target.closest('.review');
+    
+        // Assuming you have input fields for editing
+        const nameInput = review.querySelector('h3');
+        const ratingInputField = review.querySelector('.rating-input');
+        const commentInput = review.querySelector('p:nth-of-type(2)');
+    
+        // Disable input fields after editing
+        nameInput.contentEditable = false;
+        commentInput.contentEditable = false;
+    
+        // Get the old and new ratings
+        const oldRating = parseInt(review.dataset.oldRating, 10);
+        const newRating = parseInt(ratingInputField.value, 10);
+    
+        // Update the review count based on old and new ratings
+        reviewCount[oldRating]--;
+        reviewCount[newRating]++;
+    
+        // Update the rating paragraph with the new rating
+        const ratingParagraph = review.querySelector('p:nth-of-type(1)');
+        ratingParagraph.textContent = `${newRating}/5`;
+    
+        // Remove the input field
+        ratingInputField.remove();
+    
+        // Change the button text back to 'Edit'
+        event.target.textContent = 'Edit';
+    
+        // Add event listener for editing
+        event.target.removeEventListener('click', saveReview);
+        event.target.addEventListener('click', editReview);
+    
+        // Update the chart
+        updateChart();
       }
     
       // Function to handle deleting a review
       function deleteReview(event) {
         // Get the parent review element and remove it
         const review = event.target.closest('.review');
-        const rating = parseInt(review.querySelector('p:nth-of-type(1)').textContent, 10);
+        const rating = parseInt(review.querySelector('p:nth-of-type(1)').textContent.split('/')[0], 10);
         review.remove();
     
         // Decrement the count of ratings for the deleted review
@@ -267,29 +266,6 @@
     
         // Update the chart
         updateChart();
-      }
-    
-      // Function to handle saving an edited review
-      function saveReview(event) {
-        // Get the parent review element
-        const review = event.target.closest('.review');
-    
-        // Assuming you have input fields for editing
-        const nameInput = review.querySelector('h3');
-        const ratingInput = review.querySelector('p:nth-of-type(1)');
-        const commentInput = review.querySelector('p:nth-of-type(2)');
-    
-        // Disable input fields after editing
-        nameInput.contentEditable = false;
-        ratingInput.contentEditable = false;
-        commentInput.contentEditable = false;
-    
-        // Change the button text back to 'Edit'
-        event.target.textContent = 'Edit';
-    
-        // Remove the event listener for saving and add one for editing
-        event.target.removeEventListener('click', saveReview);
-        event.target.addEventListener('click', editReview);
       }
     
       // Add event listeners for edit buttons
