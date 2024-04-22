@@ -15,9 +15,7 @@
       navToggleBtn.classList.toggle('active');
     }
     
-    // shopping cart toggle function
-    const cartToggleFunc = function () { shoppingCart.classList.toggle('active') }
-    
+
     
     
     // add event on nav-toggle-btn
