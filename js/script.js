@@ -278,50 +278,57 @@
         button.addEventListener('click', deleteReview);
       });
     
-      // Function to create or update the chart based on data
-      function updateChart() {
-        if (myChart) {
-          myChart.data.datasets[0].data = Object.values(reviewCount);
-          myChart.update();
-        } else {
-          const ctx = document.getElementById('reviewDistributionChart').getContext('2d');
-          myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels: ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'],
-              datasets: [{
-                label: 'Review Distribution',
-                data: Object.values(reviewCount),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-              }]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true
-                  }
-                }]
-              }
+    // Function to create or update the chart based on data
+// Function to create or update the chart based on data
+function updateChart() {
+  if (myChart) {
+    myChart.data.datasets[0].data = Object.values(reviewCount);
+    myChart.update();
+  } else {
+    const ctx = document.getElementById('reviewDistributionChart').getContext('2d');
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'],
+        datasets: [{
+          label: 'Review Distribution',
+          data: Object.values(reviewCount),
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
             }
-          });
+          }]
+        },
+        plugins: {
+          legend: {
+            display: false // Hide the legend
+          }
         }
       }
-    
+    });
+  }
+}
+
+
       // Initialize the chart after DOM content is loaded
       updateChart();
     });
@@ -340,12 +347,29 @@
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       datasets: [{
         label: 'Average Number of Visitors Each Day',
-        data: [30, 40, 45, 50, 55, 60, 65], // Sample data 
-        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Blue color for the bars
+        data: [30, 40, 45, 50, 75, 70, 65], // Sample data 
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)', // Blue color for the bars
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)'
+        ],
         borderColor: 'rgba(54, 162, 235, 1)', // Blue color for the border
         borderWidth: 1
       }]
     };
+    
+    // Calculate transparency based on data values
+    VisitorsAverageData.datasets[0].data.forEach((value, index) => {
+      // Transparency value based on the data (0 to 1)
+      const transparency = value / 100; // Assuming 100 is the highest value in your data
+      
+      // Set the new background color with adjusted transparency
+      VisitorsAverageData.datasets[0].backgroundColor[index] = `rgba(54, 162, 235, ${transparency})`;
+    });
     
     // Get the canvas element for AverageVisitorsChart
     const canvas1 = document.getElementById('AverageVisitorsChart').getContext('2d');
@@ -371,71 +395,6 @@
           }
         },
         plugins: {
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                let label = context.dataset.label || '';
-                if (label) {
-                  label += ': ';
-                }
-                if (context.parsed.y !== null) {
-                  label += context.parsed.y ;
-                }
-                return label;
-              }
-            }
-          }
-        }
-      }
-    });
-    
-    const peakTimingsData = {
-      labels: ['9AM-12PM', '12PM-3PM', '3PM-6PM', '6PM-9PM', '9PM-10PM'],
-      datasets: [{
-        label: 'Peak Timings',
-        data: [20, 30, 40, 25, 10], // Sample peak timings data
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.5)', // Red color for morning
-          'rgba(54, 162, 235, 0.5)', // Blue color for afternoon
-          'rgba(255, 206, 86, 0.5)', // Yellow color for evening
-          'rgba(75, 192, 192, 0.5)', // Green color for night
-          'rgba(153, 102, 255, 0.5)' // Purple color for late night
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
-    
-    // Get the canvas element for PeakTimingsChart
-    const canvas2 = document.getElementById('PeakTimingsChart').getContext('2d');
-    
-    // Create the chart for PeakTimingsChart
-    const PeakTimingsChart = new Chart(canvas2, {
-      type: 'bar',
-      data: peakTimingsData,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Percentage'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Time of Day'
-            }
-          }
-        },
-        plugins: {
           legend: {
             display: false // Hide legend
           }
@@ -443,3 +402,89 @@
       }
     });
     
+    
+    
+
+
+
+
+
+
+const peakTimingsData = {
+  labels: ['9AM-12PM', '12PM-3PM', '3PM-6PM', '6PM-9PM', '9PM-10PM'],
+  datasets: [{
+    label: 'Occupancy During Peak Hours',
+    data: [20, 30, 80, 40, 70], // Sample peak timings data
+    backgroundColor: [
+      calculateColor(20), // Red color for morning
+      calculateColor(30), // Red color for afternoon
+      calculateColor(40), // Red color for evening
+      calculateColor(25), // Red color for night
+      calculateColor(10)  // Red color for late night
+    ],
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1
+  }]
+};
+
+// Function to calculate color based on data value
+function calculateColor(value) {
+  // Brightness value based on the data (0% to 100%)
+  const brightness = (value / 80) * 100; // Assuming 40 is the highest value in your data
+  
+  // Convert brightness to RGB
+  const red = 255;
+  const green = 99 - (99 * brightness) / 100;
+  const blue = 132 - (132 * brightness) / 100;
+
+  // Construct rgba color string
+  return `rgba(${red}, ${green}, ${blue}, 0.5)`;
+}
+
+// Get the canvas element for PeakTimingsChart
+const canvas2 = document.getElementById('PeakTimingsChart').getContext('2d');
+
+// Create the chart for PeakTimingsChart
+const PeakTimingsChart = new Chart(canvas2, {
+  type: 'bar',
+  data: peakTimingsData,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 100, // Set maximum value of y-axis to 100
+        title: {
+          display: true,
+          text: 'Percentage'
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Time of Day'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false // Hide legend
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let label = context.dataset.label || '';
+            if (label) {
+              label += ': ';
+            }
+            if (context.parsed.y !== null) {
+              label += context.parsed.y + '%'; // Append percentage symbol
+            }
+            return label;
+          }
+        }
+      }
+    }
+  }
+});
+
+

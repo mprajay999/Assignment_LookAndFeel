@@ -458,9 +458,8 @@
 .chart-container {
   width: 100%; /* Occupy full width */
   text-align: center;
-  border: 1px solid #ccc; /* Optional: Add border for each chart */
   border-radius: 5px; /* Optional: Add border radius */
-  margin-bottom: 20px; /* Optional: Add some space between charts */
+  margin-bottom: 40px; /* Optional: Add some space between charts */
 }
 
 /* Apply different styles for smaller screens */
@@ -473,6 +472,6 @@
   
   .chart-container {
     width: 48%; /* Adjust width for two charts side by side */
-    margin-bottom: 0; /* Remove bottom margin for adjacent charts */
+    margin-bottom: 20; /* Remove bottom margin for adjacent charts */
   }
 }

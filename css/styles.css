@@ -758,3 +758,11 @@ html {
     }
     
     
+    .map-section {
+      margin-bottom: 0px; /* Add margin at the bottom of the map section */
+    }
+    
+    .charts-container {
+      margin-top: 0px; /* Add margin at the top of the charts container */
+    }
+    
