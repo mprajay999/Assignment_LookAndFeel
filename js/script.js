@@ -291,7 +291,7 @@ function updateChart() {
       data: {
         labels: ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'],
         datasets: [{
-          label: 'Review Distribution',
+          label: 'Count',
           data: Object.values(reviewCount),
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
