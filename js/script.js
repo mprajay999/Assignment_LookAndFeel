@@ -446,7 +446,7 @@ const canvas2 = document.getElementById('PeakTimingsChart').getContext('2d');
 
 // Create the chart for PeakTimingsChart
 const PeakTimingsChart = new Chart(canvas2, {
-  type: 'bar',
+  type: 'line',
   data: peakTimingsData,
   options: {
     scales: {
