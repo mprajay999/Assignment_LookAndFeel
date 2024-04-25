@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulls Bistro</title>
+  <link rel="icon" href="./images/usf.png" type="image/icon type">
+  
+  <!-- Custom CSS link -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/media_query.css">
+
+  <!-- Google Font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Main container -->
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="navbar-wrapper">
+          <a href="./index.html">
+            <img src="./images/bulls bistro.png" alt="logo" width="200">
+          </a>
+          <ul class="navbar-nav">
+            <li><a href="./index.html" class="nav-link">Home</a></li>
+            <li><a href="./hours.html" class="nav-link">Hours</a></li>
+            <li><a href="./reviews.html" class="nav-link">Reviews</a></li>
+            <li><a href="./about.html" class="nav-link">About</a></li>
+          </ul>
+          <div class="navbar-btn-group">
+            <button class="menu-toggle-btn">
+              <span class="line one"></span>
+              <span class="line two"></span>
+              <span class="line three"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="cart-box"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Reviews Section -->
+      <section class="reviews" id="reviews">
+
+        <!-- Existing Reviews -->
+        <div id="existing-reviews">
+          <h1>Customer Reviews</h1>
+          <br>
+          <div class="review">
+            <h3>John Doe</h3>
+            <p>4/5</p>
+            <p>This place is amazing! The food is delicious, and the service is excellent. I highly recommend it!</p>
+            <!-- Edit and Delete Options -->
+            <div class="review-options">
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </div>
+          </div>
+          <div class="review">
+            <h3>Jane Smith</h3>
+            <p>5/5</p>
+            <p>Great experience! The ambiance is cozy, and the food is top-notch. Will definitely be back!</p>
+            <!-- Edit and Delete Options -->
+            <div class="review-options">
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </div>
+          </div>
+          <!-- Add more dummy reviews as needed -->
+        </div>
+
+        <!-- Chart.js Chart -->
+        <div class="chart-heading" style="text-align: center;">
+          <h2>User Reviews Distribution</h2>
+        </div>
+        <div class="chart-container" style="text-align: center;">
+          <canvas id="reviewDistributionChart"></canvas>
+        </div>
+
+        <!-- Review Form -->
+        <form id="review-form" style="margin-top: 20px;">
+          <h2>Write a Review</h2>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="rating">Rating:</label>
+          <div class="rating-input">
+            <input type="radio" id="star5" name="rating" value="5" required>
+            <label for="star5">5 stars</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">4 stars</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">3 stars</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">2 stars</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">1 star</label>
+          </div>
+
+          <label for="comment">Review:</label>
+          <textarea id="comment" name="comment" rows="4" required></textarea>
+          <button type="submit">Submit Review</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Custom JS link -->
+  <script src="./js/script.js"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
